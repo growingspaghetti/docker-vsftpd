@@ -34,6 +34,9 @@ COPY vsftpd.conf /etc/vsftpd/
 COPY vsftpd_virtual /etc/pam.d/
 COPY run-vsftpd.sh /usr/sbin/
 
+COPY key.pem /etc/ssl/private/vsftpd.key
+COPY cert.pem /etc/ssl/certs/vsftpd.crt
+
 RUN chmod +x /usr/sbin/run-vsftpd.sh
 RUN mkdir -p /home/vsftpd/
 RUN chown -R ftp:ftp /home/vsftpd/
